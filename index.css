@@ -1,0 +1,35 @@
+#main_div{
+    border: solid;
+    border-radius: 20%;
+    border-color: grey;
+    text-align: center;
+}
+
+.backdrop {
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.container {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    max-width: 768px;
+    border-radius: 10px;
+}
+  
+.row {
+    margin-bottom: 10px;
+}
+
+.linkskill {
+    height: 40px;
+}
+
+.linkskilldiv {
+    text-align: center !important;
+}
