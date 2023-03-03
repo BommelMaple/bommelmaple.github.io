@@ -527,4 +527,6 @@ $(document).ready(function() {
         //console.log(sorted_option_list.slice(0,100));
     });
 
+    $("#instructions").modal("show")
+
 })
