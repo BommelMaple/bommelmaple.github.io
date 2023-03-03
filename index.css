@@ -8,7 +8,6 @@
 .backdrop {
     background-color: #f7f7f7;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,8 +17,9 @@
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    max-width: 768px;
+    max-width: 1080px;
     border-radius: 10px;
+    margin-top: 10vh;
 }
   
 .row {
@@ -32,4 +32,29 @@
 
 .linkskilldiv {
     text-align: center !important;
+}
+
+#hyper_stats_amount_input{
+    width: 33vw;
+    position: absolute;
+    left:33vw;
+}
+
+.bordered-table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.bordered-table th, .bordered-table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.progress{
+    position: fixed;
+    left:12.5vw;
+    top: 10px;
+    width: 75%;
+    height:25px;
 }

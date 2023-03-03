@@ -103,8 +103,8 @@
 
             <!-- Add link skills -->
             <div class="row">
-                <h2 class="mb-3 mt-4">Link skills (that aren't passives)</h2>
-                <div class="col-md-6 text-center linkskilldiv">
+                <h2 class="mb-3 mt-4">Link skills and other buffs (that aren't passives)</h2>
+                <div class="col-md-4 text-center linkskilldiv">
 
                     <!-- Cadena -->
                     <div class="form-check mb-2">
@@ -129,9 +129,7 @@
                             <img src="img/magelink.png" alt="Mage link" class="toggle-icon linkskill">
                         </label>
                     </div>
-
-                </div>
-                <div class="col-md-6 text-center linkskilldiv">
+                
                     <!-- Thief -->
                     <div class="form-check mb-2">
                         <input type="checkbox" id="toggle-switch-thief">
@@ -156,92 +154,137 @@
                         </label>
                     </div>
                 </div>
+
+                <div class="col-md-4 text-center linkskilldiv">
+                    
+                    <!-- Guild skills -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-gskill-boss">
+                        <label class="form-check-label" for="toggle-switch-gskill-boss">
+                            <img src="img/gskill_boss.webp" alt="Boss guild skill" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-gskill-ied">
+                        <label class="form-check-label" for="toggle-switch-gskill-ied">
+                            <img src="img/gskill_ied.webp" alt="IED guild skill" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-gskill-dmg">
+                        <label class="form-check-label" for="toggle-switch-gskill-dmg">
+                            <img src="img/gskill_dmg.webp" alt="Damage guild skill" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-gskill-cdmg">
+                        <label class="form-check-label" for="toggle-switch-gskill-cdmg">
+                            <img src="img/gskill_cdmg.webp" alt="Crit damage guild skill" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4 text-center linkskilldiv">
+
+                    <!-- Echo -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-echo">
+                        <label class="form-check-label" for="toggle-switch-echo">
+                            <img src="img/echo.gif" alt="Echo" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <!-- Boss damage pot -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-boss-dmg-pot">
+                        <label class="form-check-label" for="toggle-switch-boss-dmg-pot">
+                            <img src="img/boss-dmg-pot.webp" alt="Boss potion (20)" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <!-- IED pot -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-ied-pot">
+                        <label class="form-check-label" for="toggle-switch-ied-pot">
+                            <img src="img/ied-pot.png" alt="IED potion (20)" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <!-- Home buff -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-home">
+                        <label class="form-check-label" for="toggle-switch-home">
+                            <img src="img/home.png" alt="Home buff (BD)" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                    <!-- Home buff -->
+                    <div class="form-check mb-2">
+                        <input type="checkbox" id="toggle-switch-soul">
+                        <label class="form-check-label" for="toggle-switch-soul">
+                            <img src="img/soul.webp" alt="Attack soul" class="toggle-icon linkskill">
+                        </label>
+                    </div>
+
+                </div>
             </div>
 
 
             <!-- Hyper stats -->
-            <div class="row">
+            <div class="row text-center mb-5">
                 <h2 class="mt-4 mb-2">Hyper stats</h2>
-                <div class="col-md-5" id="hyper_stats_amount">
+                <div class="col-md-12" id="hyper_stats_amount">
+                    <label for="hyper_stats_amount_input" class="fw-bold">Available hyper stat points</label>
                     <input type="number" id="hyper_stats_amount_input" class="form-control"/>
                 </div>
             </div>
 
 
             <!-- Display optimization settings-->
-            <div class="row">
+            <div class="row mt-5">
                 <h2 class="mt-4 mb-2">Summary of inputs</h2>
-                <div class="col-md-4">Column 1</div>
-                <div class="col-md-4">Column 2</div>
-                <div class="col-md-4">Column 3</div>
+                <div class="col-md-6">
+                    <h4>Base stats</h4>
+                    <div id="base_stats_to_add" class="m-2"></div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Possible familiars</h4>
+                    <div id="fams_to_add" class="m-2"></div>
+                </div>
+                <!--
+                <div class="col-md-4">
+                    <h4>Buffs used</h4>
+                </div>
+                -->
             </div>
+
             <div class="row">
-                <div class="col-md-6">Column 4</div>
-                <div class="col-md-6">Column 5</div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">Column 1</div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container d-flex justify-content-center">
-        <div id="main_div" class="m-5 p-5">
-            <!-- Add familiars -->
-            <div class="row p-2">
-                <div class="mb-3">
-                    <h1>Familiars to add to options</h1>
-                </div>
-                
-                <div id="fam_stats_type1" class="col-6">
-                    <select class="form-control form-control-lg">
-                        <option disabled>Select one</option>
-                        <option selected value="none">None</option>
-                        <option value="att">Attack</option>
-                        <option value="boss">Boss damage</option>
-                        <option value="dmg">Damage</option>
-                        <option value="cdmg">Critical damage</option>
-                        <option value="ied">Ignore enemy defense</option>
-                    </select>
-                </div>
-                
-                <div id="fam_stats_type2" class="col-6">
-                    <select class="form-control form-control-lg">
-                        <option disabled>Select one</option>
-                        <option selected value="none">None</option>
-                        <option value="att">Attack</option>
-                        <option value="boss">Boss damage</option>
-                        <option value="dmg">Damage</option>
-                        <option value="cdmg">Critical damage</option>
-                        <option value="ied">Ignore enemy defense</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row p-2">
-                <button class="btn btn-primary" id="add_fam_btn">Add familiar</button>
-            </div>
-
-
-            <div class="row mt-5 p-2">
-                <h1>Base stats</h1>
-                <div id="base_stats_to_add" class="m-2"></div>
-            </div>
-
-            <div class="row mt-5 p-2">
-                <h1>Familiars</h1>
-                <div id="fams_to_add" class="m-2"></div>
-            </div>
-
-            <div class="row mt-5 p-2">
-                <h1>Result</h1>
-                <div class="row p-2">
+                <div class="col-md-12 text-center">
                     <button class="btn btn-primary" id="optimize_btn">Optimize</button>
                 </div>
-                <div id="results_of_optimization" class="m-2"></div>
+            </div>
+
+
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-center" id="results">
+                    <table id="result_table">
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <!--
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    -->
 </body>
 </html>
