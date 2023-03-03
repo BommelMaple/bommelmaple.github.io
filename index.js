@@ -25,7 +25,7 @@ function calculate_fd_score(object){
     dmg  = object.dmg;
     cdmg = object.cdmg;
     ied  = object.ied;
-    fd_score = (att/100) * ((boss + dmg)/100) * (cdmg/100) * (1 - (boss_pdr * (1 - ied)));
+    fd_score = (att/100) * ((boss + dmg)/100) * (cdmg/100) * (1 - (boss_pdr * (1 - ied/100)));
     object.fd_score = fd_score;
 
     return object;
