@@ -59,6 +59,12 @@ function add_base_stats_yourself(base_stats_to_add, option_list){
     dmg  += 100;
     cdmg += 35;
 
+    // Add set effects with genesis weapon
+    ied = calculate_new_ied(ied, 20) // weapon
+    boss += 10 // arcane set
+    boss += 30 // cra set
+    boss += 30 // weapon
+
     // Add legion stats, assuming maxed legion : no new players allowed
     // Commented out because this is included into stat window!
     //cdmg += 20;
@@ -235,9 +241,10 @@ function add_hyper_stat_options(available_pts, option_list){
     // This function first gets all possible (maxed) hyper stat combinations
 
     var base_hyper_stats = {"boss":0,"dmg":0,"cdmg":0,"ied":0};
-    var best_fd_score = 0; var lowest_fd_score = 0;
+    var lowest_fd_score = 0;
     var amount_of_scores = 0;
     var max_amount_of_scores = 1000;
+    var best_fd_score = 0;
     
 
     // Then create all possible options
@@ -249,6 +256,8 @@ function add_hyper_stat_options(available_pts, option_list){
     // Then add all possible hyper stats to each option in the option list
     $.each(option_list, function(option_index, option){
         var JSON_option = JSON.stringify(option);
+        best_fd_score = 0;
+
         $.each(possible_hyper_stats, function(hyper_index, hypers){
             new_option = JSON.parse(JSON_option);
             new_option["hypers"] = hypers;
@@ -258,22 +267,27 @@ function add_hyper_stat_options(available_pts, option_list){
             new_option["ied"] = calculate_new_ied(new_option["ied"],hypers["ied"]);
             new_option = calculate_fd_score(new_option);
 
-            // Check if we should add it to the list
-            if( amount_of_scores < max_amount_of_scores ){
-
-                new_option_list.push(new_option);
-                new_option_list = optimize(new_option_list);
-                amount_of_scores++;
-                lowest_fd_score = new_option_list[new_option_list.length - 1].fd_score;
-
-            } else if(new_option.fd_score > lowest_fd_score){
-
-                new_option_list[new_option_list.length - 1] = new_option;
-                new_option_list = optimize(new_option_list);
-                lowest_fd_score = new_option_list[new_option_list.length - 1].fd_score;
-
-            }            
+            if(new_option.fd_score > best_fd_score){
+                best_fd_score = new_option.fd_score;
+                best_option = JSON.parse(JSON.stringify(new_option));
+            }
         })
+
+        // Check if we should add it to the list
+        if( amount_of_scores < max_amount_of_scores ){
+
+            new_option_list.push(best_option);
+            new_option_list = optimize(new_option_list);
+            amount_of_scores++;
+            lowest_fd_score = new_option_list[new_option_list.length - 1].fd_score;
+
+        } else if(best_option.fd_score > lowest_fd_score){
+
+            new_option_list[new_option_list.length - 1] = best_option;
+            new_option_list = optimize(new_option_list);
+            lowest_fd_score = new_option_list[new_option_list.length - 1].fd_score;
+
+        }
         perct = 100*(option_index / option_list.length).toFixed(3);
         console.log(perct+"%");
     })
@@ -432,6 +446,8 @@ function generate_table(result_options){
     famHeader.textContent = "Familiars";
     const hyperHeader = headerRow.insertCell();
     hyperHeader.textContent = "Hyperstats";
+    const fdHeader = headerRow.insertCell();
+    fdHeader.textContent = "Final Damage Multiplayer";
 
     // create a row for each item in the data array
     for (let i = 0; i < result_options.length; i++) {
@@ -444,6 +460,8 @@ function generate_table(result_options){
         //famCell.textContent = JSON.stringify(result_options[i].fams);
         const hyperCell = row.insertCell();
         hyperCell.innerHTML = JSON.stringify(result_options[i].hypers);
+        const fdCell = row.insertCell();
+        fdCell.innerHTML = JSON.stringify(result_options[i].fd_score);
     }
 }
 
