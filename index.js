@@ -57,7 +57,7 @@ function add_base_stats_yourself(base_stats_to_add, option_list){
     // Also add base stats that everyone has
     att  += 100;
     dmg  += 100;
-    cdmg += 35;
+    cdmg += 135;
 
     // Add set effects with genesis weapon
     ied = calculate_new_ied(ied, 20) // weapon
